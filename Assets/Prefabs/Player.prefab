@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  myCamera: {fileID: 0}
 --- !u!135 &135319247782874992
 SphereCollider:
   m_ObjectHideFlags: 1

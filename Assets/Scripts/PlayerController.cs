@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     private Rigidbody rb;
+    public Camera myCamera;
 
     void Start()
     {
@@ -15,11 +16,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        rb.AddForce(movement * speed);
+        if (Input.GetButton("Fire1") || Input.touchCount > 0)
+        {
+            Vector3 forward = myCamera.transform.forward;
+            this.transform.position += forward * Time.deltaTime * speed;
+            rb.AddForce(forward * speed);
+        }
     }
 }
